@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 01</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Задание:
+        Сделайте так, чтобы класс Truck наследовался от класса Car.
+        Переопределит метод move, чтобы в производном классе он выводил сообщение, "Грузовик движется со скоростью 50 км/час".
+        */
+
+        class Car {
+            start() {
+                document.write("Двигатель запущен. <br />");
+            }
+
+            move() {
+                document.write("Машина двигается со скоростью 80 км/час <br />");
+            }
+        }
+
+        class Truck extends Car {
+            weight;
+            move() {
+                super.move();
+                document.write("Грузовик двигается со скоростью 50 км/час <br />");
+            }
+            loadCargo(weight) {
+                if (weight > 1000) {
+                    document.write("Этот грузовик не может перевозить более 1000кг груза <br />");
+                }
+                else {
+                    this.weight = weight;
+                    document.write(`В грузовик загружено ${this.weight}кг. <br />`);
+                }
+            }
+        }
+
+        let v1 = new Car();
+        v1.start();
+        v1.move();
+
+        let v2 = new Truck();
+        v2.loadCargo(1500);
+        v2.loadCargo(990);
+        v2.start();
+        v2.move();
+    </script>
+</body>
+
+</html>
